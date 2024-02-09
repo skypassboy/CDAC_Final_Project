@@ -11,7 +11,7 @@ import com.example.demo.entities.User;
 import com.example.demo.repositories.UserRepository;
 
 
-@Service
+@Service("uservice")
 public class UserService {
 	
 	@Autowired
@@ -23,7 +23,19 @@ public class UserService {
         return urepo.save(user);
     }
 	
+	public User authenticateUser(String emailid, String password) {
+        // Retrieve the user from the database by email
+        User user = urepo.findByEmailid(emailid);
 
+        // Check if the user exists and if the password matches
+        if (user != null && user.getPassword().equals(password)) {
+            // Return the authenticated user
+            return user;
+        }
+
+        // Return null if authentication fails
+        return null;
+    }
 	
 	
 	

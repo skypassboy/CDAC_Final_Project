@@ -22,37 +22,37 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="User_Id")
+	@Column
 	int userid ;
 	
-	@Column(name="Username")
+	@Column
 	String username;
 	
-	@Column(name="Password")
-	int password;
+	@Column
+	String password;
 	
-	@Column(name="AadharCard_No")
+	@Column
 	String aadharcardno;
 	
 	
-	@Column(name="Email_ID")
+	@Column
 	String emailid;
 	
 	
-	@Column(name="Phone_Number")
+	@Column
 	int phonenumber;
 	
 	
-	@Column(name="Role_ID")
+	@Column
 	int roleid;
 	
-	@Column(name="Address")
+	@Column
 	String address;
 	
-	@Column(name="Pincode")
+	@Column
 	int pincode;
 
-	public User(int userid, String username, int password, String aadharcardno, String emailid, int phonenumber,
+	public User(int userid, String username, String password, String aadharcardno, String emailid, int phonenumber,
 			int roleid, String address, int pincode) {
 		super();
 		this.userid = userid;
@@ -66,7 +66,7 @@ public class User {
 		this.pincode = pincode;
 	}
 
-	public User(String username, int password, String aadharcardno, String emailid, int phonenumber, int roleid,
+	public User(String username, String password, String aadharcardno, String emailid, int phonenumber, int roleid,
 			String address, int pincode) {
 		super();
 		this.username = username;

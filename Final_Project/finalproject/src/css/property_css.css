@@ -1,0 +1,45 @@
+#main_property_div{
+    /* border: 1px solid black; */
+    width: 30vw;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 30px;
+}
+#sub_property_div{
+    /* border: 1px solid black; */
+    border-radius: 25px 25px 25px 25px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    width: inherit
+   
+}
+#sub_property_div>img{
+    width:inherit;
+    height: 20vw;
+    border-radius: 25px 25px 0px 0px;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+   
+  }
+  
+
+  #grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    row-gap: 35px;
+    padding-left: 25px;
+
+  }
+
+  #homebtn{
+    border: none;
+    width: 5vw;
+    height: 2.2vw;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    text-emphasis-color: white;
+    border-radius: 4px;
+    color: rgb(125,125,125);
+  }
