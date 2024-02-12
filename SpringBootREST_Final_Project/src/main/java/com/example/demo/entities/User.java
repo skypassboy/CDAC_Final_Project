@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -40,11 +43,12 @@ public class User {
 	
 	
 	@Column
-	int phonenumber;
+	String phonenumber;
 	
 	
-	@Column
-	int roleid;
+	@ManyToOne
+    @JoinColumn(name = "roleid")
+    Role role;
 	
 	@Column
 	String address;
@@ -52,8 +56,8 @@ public class User {
 	@Column
 	int pincode;
 
-	public User(int userid, String username, String password, String aadharcardno, String emailid, int phonenumber,
-			int roleid, String address, int pincode) {
+	public User(int userid, String username, String password, String aadharcardno, String emailid, String phonenumber,
+			Role role, String address, int pincode) {
 		super();
 		this.userid = userid;
 		this.username = username;
@@ -61,12 +65,12 @@ public class User {
 		this.aadharcardno = aadharcardno;
 		this.emailid = emailid;
 		this.phonenumber = phonenumber;
-		this.roleid = roleid;
+		this.role = role;
 		this.address = address;
 		this.pincode = pincode;
 	}
 
-	public User(String username, String password, String aadharcardno, String emailid, int phonenumber, int roleid,
+	public User(String username, String password, String aadharcardno, String emailid, String phonenumber, Role role,
 			String address, int pincode) {
 		super();
 		this.username = username;
@@ -74,7 +78,7 @@ public class User {
 		this.aadharcardno = aadharcardno;
 		this.emailid = emailid;
 		this.phonenumber = phonenumber;
-		this.roleid = roleid;
+		this.role = role;
 		this.address = address;
 		this.pincode = pincode;
 	}
@@ -82,7 +86,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", username=" + username + ", password=" + password + ", aadharcardno="
-				+ aadharcardno + ", emailid=" + emailid + ", phonenumber=" + phonenumber + ", roleid=" + roleid
+				+ aadharcardno + ", emailid=" + emailid + ", phonenumber=" + phonenumber + ", role=" + role
 				+ ", address=" + address + ", pincode=" + pincode + "]";
 	}
 	

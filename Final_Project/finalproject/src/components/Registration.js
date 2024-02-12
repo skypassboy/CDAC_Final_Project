@@ -278,7 +278,6 @@ const Registration = () => {
         AadharCard_No: '',
         Email_ID: '',
         Phone_Number: '',
-        Role_ID: '',
         Address: '',
         Pincode: '',
     });
@@ -308,7 +307,7 @@ const Registration = () => {
         const aadharNoError = !/^\d{12}$/.test(formData.AadharCard_No) ? 'Invalid aadhar number' : '';
         const emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.Email_ID) ? 'Invalid email address' : '';
         const mobileError = !/^\d{10}$/.test(formData.Phone_Number) ? 'Invalid mobile number' : '';
-        const addressError = !/^[a-zA-Z0-9\s\/,.\-]{20,200}$/.test(formData.Address) ? 'Invalid address. Address should be 20 to 200 characters long and contain only letters, numbers, and [/,.-].' : '';
+        const addressError = !/^[a-zA-Z0-9\s\/,.\-]{5,200}$/.test(formData.Address) ? 'Invalid address. Address should be 20 to 200 characters long and contain only letters, numbers, and [/,.-].' : '';
         const pincodeError = !/^[0-9]{6}/.test(formData.Pincode) ? 'Invalid pincode' : '';
 
         console.log(formData.Username);
@@ -354,6 +353,7 @@ const Registration = () => {
             }),
         };
         console.log(reqData);
+        //goes for springboot api 
         fetch('http://localhost:8080/register', reqData)
             .then((res) => {
                 if (res.ok) {
@@ -449,7 +449,6 @@ const Registration = () => {
                     <div>
                         <select id="Role_ID" name="Role_ID" onChange={handleChange} value={formData.Role_ID}>
                             <option>Select Role</option>
-                            <option value="1">Admin</option>
                             <option value="2">Owner</option>
                             <option value="3">Tenant</option>
                         </select>
