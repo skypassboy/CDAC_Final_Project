@@ -11,7 +11,7 @@ import com.example.demo.entities.User;
 import com.example.demo.repositories.UserRepository;
 
 
-@Service("uservice")
+@Service
 public class UserService {
 	
 	@Autowired
@@ -37,6 +37,8 @@ public class UserService {
         return null;
     }
 	
-	
+	public List<User> getAllUsers() {
+        return urepo.findAll();
+    }
 	
 }

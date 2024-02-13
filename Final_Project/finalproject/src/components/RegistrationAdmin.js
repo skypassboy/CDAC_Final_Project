@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import "../css/login_page_css.css";
-localStorage.setItem("page", "register_page");
-const Registration = () => {
+localStorage.setItem("page", "register_page_admin");
+const RegistrationAdmin = () => {
     const [formData, setFormData] = useState({
         Username: '',
         Password: '',
@@ -103,7 +103,7 @@ const Registration = () => {
             .then((res) => {
                 if (res.ok) {
                     alert("Registered Successfully...!");
-                    navigate('/LandingPage');
+                    navigate('/login_page');
                     return res.text();
                 } else {
                     alert("hi");
@@ -194,8 +194,7 @@ const Registration = () => {
                     <div>
                         <select id="Role_ID" name="Role_ID" onChange={handleChange} value={formData.Role_ID}>
                             <option>Select Role</option>
-                            <option value="2">Owner</option>
-                            <option value="3">Tenant</option>
+                            <option value="1">Admin</option>
                         </select>
                     </div>
 
@@ -236,4 +235,4 @@ const Registration = () => {
     );
 };
 
-export default Registration;
+export default RegistrationAdmin;

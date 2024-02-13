@@ -21,8 +21,11 @@ import LandingPage from './components/LandingPage';
 // import Login from './Compoents/Login';
 import Registration from './components/Registration';
 import ShowProperty from './components/ShowProperty';
+import LandingAdmin from './components/LandingAdmin';
 import { Login } from './components/Login'
 import { Link, Routes, Route } from 'react-router-dom';
+import RegistrationAdmin from './components/RegistrationAdmin';
+import ShowAllUsers from './components/ShowAllUsers';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
@@ -61,8 +64,11 @@ function App() {
       <Routes>
         <Route path='/ShowProperty' element={<ShowProperty />} />
         <Route path='/LandingPage' element={<LandingPage />} />
+        <Route path="/LandingAdmin" element={<LandingAdmin />} />
         <Route path="/login_page" element={<Login />} />
         <Route path="/register_page" element={<Registration />} />
+        <Route path="/register_page_admin" element={<RegistrationAdmin />} />
+        <Route path="/showAllUsers" element={<ShowAllUsers />} />
       </Routes>
 
 

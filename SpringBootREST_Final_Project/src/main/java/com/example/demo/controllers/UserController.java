@@ -52,4 +52,18 @@ public class UserController {
             return ResponseEntity.status(401).build();
         }
 	}
+	
+	
+	@GetMapping("/getalluser")
+    public ResponseEntity<List<User>> getAllUsers() {
+        try {
+            List<User> allUsers = uservice.getAllUsers();
+            return ResponseEntity.ok(allUsers);
+        } catch (Exception e) {
+            // Handle specific exceptions and return appropriate status codes or messages
+            return ResponseEntity.status(500).build();
+        }
+    }
+	
+	
 }
