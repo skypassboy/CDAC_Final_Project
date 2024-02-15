@@ -30,6 +30,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import { useNavigate, useLocation } from 'react-router-dom';
+import UpdateProfile from './components/UpdateProfile';
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
         <Route path="/register_page" element={<Registration />} />
         <Route path="/register_page_admin" element={<RegistrationAdmin />} />
         <Route path="/showAllUsers" element={<ShowAllUsers />} />
+        <Route path='/UpdateProfile' element={<UpdateProfile />} />
       </Routes>
 
 

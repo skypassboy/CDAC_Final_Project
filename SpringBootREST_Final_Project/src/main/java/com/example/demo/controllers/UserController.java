@@ -67,6 +67,11 @@ public class UserController {
 	            User existingUser = userOptional.get();
 
 	            // Update user details with new data
+//	            existingUser.setUsername(updatedUser.getUsername());
+	            existingUser.setUsername(updatedUser.getUsername());
+	            existingUser.setPassword(updatedUser.getPassword());
+	            existingUser.setAadharcardno(updatedUser.getAadharcardno());
+	            existingUser.setUsername(updatedUser.getUsername());
 	            existingUser.setUsername(updatedUser.getUsername());
 	            existingUser.setUsername(updatedUser.getUsername());
 	            existingUser.setAddress(updatedUser.getAddress());
