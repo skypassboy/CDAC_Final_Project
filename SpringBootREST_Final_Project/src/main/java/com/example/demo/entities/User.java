@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -43,11 +45,11 @@ public class User {
 	
 	
 	@Column
-	int phonenumber;
+	String phonenumber;
 	
-	
-	@Column
-	int roleid;
+	@ManyToOne
+    @JoinColumn(name = "roleid")
+	Role roleid;
 	
 	@Column
 	String address;
@@ -55,8 +57,13 @@ public class User {
 	@Column
 	int pincode;
 
+<<<<<<< HEAD
 	public User(int userid, String username, String password, String aadharcardno, String emailid, int phonenumber,
 			int roleid, String address, int pincode,boolean activitystatus) {
+=======
+	public User(int userid, String username, String password, String aadharcardno, String emailid, String phonenumber,
+			Role roleid, String address, int pincode) {
+>>>>>>> ef7f092c647c95daf98e79248101e3cbb065be11
 		super();
 		this.userid = userid;
 		this.username = username;
@@ -70,8 +77,13 @@ public class User {
 		this.activitystatus=activitystatus;
 	}
 
+<<<<<<< HEAD
 	public User(String username, String password, String aadharcardno, String emailid, int phonenumber, int roleid,
 			String address, int pincode,boolean activitystatus) {
+=======
+	public User(String username, String password, String aadharcardno, String emailid, String phonenumber, Role roleid,
+			String address, int pincode) {
+>>>>>>> ef7f092c647c95daf98e79248101e3cbb065be11
 		super();
 		this.username = username;
 		this.password = password;

@@ -62,6 +62,19 @@ const LandingPage = () => {
                     ) : (
                         <button class='btnbtn1' onClick={handleLogin}>Login</button>
                     )}
+                   
+                    {isLoggedIn ?(
+                         <button id='btn' style={{ display: 'none' }} onClick={() => {
+                            navigate('/Register_page');
+                        }} class="btnbtn">Register</button>
+                    ): (
+                       
+                        <button id='btn' onClick={() => {
+                            navigate('/Register_page');
+                        }} class="btnbtn">Register</button>
+                    )
+
+                    }
                 </div>
 
 

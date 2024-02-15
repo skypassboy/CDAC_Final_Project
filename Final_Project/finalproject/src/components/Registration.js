@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 
@@ -253,6 +254,8 @@
 
 // export default Registration;
 
+=======
+>>>>>>> ef7f092c647c95daf98e79248101e3cbb065be11
 
 
 import React, { useState } from 'react';
@@ -308,7 +311,7 @@ const Registration = () => {
         const aadharNoError = !/^\d{12}$/.test(formData.AadharCard_No) ? 'Invalid aadhar number' : '';
         const emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.Email_ID) ? 'Invalid email address' : '';
         const mobileError = !/^\d{10}$/.test(formData.Phone_Number) ? 'Invalid mobile number' : '';
-        const addressError = !/^[a-zA-Z0-9\s\/,.\-]{20,200}$/.test(formData.Address) ? 'Invalid address. Address should be 20 to 200 characters long and contain only letters, numbers, and [/,.-].' : '';
+        const addressError = !/^[a-zA-Z0-9\s\/,.\-]{5,200}$/.test(formData.Address) ? 'Invalid address. Address should be 5 to 200 characters long and contain only letters, numbers, and [/,.-].' : '';
         const pincodeError = !/^[0-9]{6}/.test(formData.Pincode) ? 'Invalid pincode' : '';
 
         console.log(formData.Username);
@@ -362,7 +365,7 @@ const Registration = () => {
                     return res.text();
                 } else {
                     alert("hi");
-                    if (res.status === 400) {
+                    if (res.status == 400) {
                         alert("Duplicate entry for Email or Mobile Number");
                     } else {
                         alert("Registration failed. Please try again later.");
@@ -449,7 +452,6 @@ const Registration = () => {
                     <div>
                         <select id="Role_ID" name="Role_ID" onChange={handleChange} value={formData.Role_ID}>
                             <option>Select Role</option>
-                            <option value="1">Admin</option>
                             <option value="2">Owner</option>
                             <option value="3">Tenant</option>
                         </select>
