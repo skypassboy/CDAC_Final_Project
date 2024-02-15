@@ -23,6 +23,20 @@ public class UserService {
         return urepo.save(user);
     }
 	
+	 public User getUserByEmail(String email,boolean status) {
+		 User user = urepo.findByEmailid(email);
+
+	        // Check if the user exists and if the password matches
+	        if (user != null) {
+	            // Return the authenticated user
+	        	 user.setActivitystatus(status);
+	        	 
+	            return urepo.save(user);
+	        }
+
+	        // Return null if authentication fails
+	        return null;
+	    }
 	public User authenticateUser(String emailid, String password) {
         // Retrieve the user from the database by email
         User user = urepo.findByEmailid(emailid);

@@ -37,7 +37,18 @@ public class UserController {
             return ResponseEntity.status(500).build();
         }
     }
-	
+	@PostMapping("/active")
+    public ResponseEntity<User> activity(@RequestBody User activeUser) {
+		User r= uservice.getUserByEmail(activeUser.getEmailid(),activeUser.isActivitystatus());		
+			
+		 if (r != null) {
+	            return ResponseEntity.ok(r);
+	        } else {
+	            // You may want to return a different status code for unsuccessful login
+	            return ResponseEntity.status(401).build();
+	        }
+		
+	}
 	@PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody User loginUser) {
         // Logic to authenticate the user using UserService

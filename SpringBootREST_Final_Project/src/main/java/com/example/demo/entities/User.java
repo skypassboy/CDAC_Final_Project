@@ -29,6 +29,9 @@ public class User {
 	String username;
 	
 	@Column
+	boolean activitystatus;
+	
+	@Column
 	String password;
 	
 	@Column
@@ -53,7 +56,7 @@ public class User {
 	int pincode;
 
 	public User(int userid, String username, String password, String aadharcardno, String emailid, int phonenumber,
-			int roleid, String address, int pincode) {
+			int roleid, String address, int pincode,boolean activitystatus) {
 		super();
 		this.userid = userid;
 		this.username = username;
@@ -64,10 +67,11 @@ public class User {
 		this.roleid = roleid;
 		this.address = address;
 		this.pincode = pincode;
+		this.activitystatus=activitystatus;
 	}
 
 	public User(String username, String password, String aadharcardno, String emailid, int phonenumber, int roleid,
-			String address, int pincode) {
+			String address, int pincode,boolean activitystatus) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -77,14 +81,18 @@ public class User {
 		this.roleid = roleid;
 		this.address = address;
 		this.pincode = pincode;
+		this.activitystatus=activitystatus;
 	}
 
 	@Override
 	public String toString() {
-		return "User [userid=" + userid + ", username=" + username + ", password=" + password + ", aadharcardno="
-				+ aadharcardno + ", emailid=" + emailid + ", phonenumber=" + phonenumber + ", roleid=" + roleid
-				+ ", address=" + address + ", pincode=" + pincode + "]";
+		return "User [userid=" + userid + ", username=" + username + ", activitystatus=" + activitystatus
+				+ ", password=" + password + ", aadharcardno=" + aadharcardno + ", emailid=" + emailid
+				+ ", phonenumber=" + phonenumber + ", roleid=" + roleid + ", address=" + address + ", pincode="
+				+ pincode + "]";
 	}
+
+	
 	
 
 }
