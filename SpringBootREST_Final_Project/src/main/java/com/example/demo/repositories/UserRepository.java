@@ -8,5 +8,6 @@ import com.example.demo.entities.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	//@Query("select u from User u where ")
 	User findByEmailid(String emailid);
-	
+	User findByUserid(int userid);
 }
+

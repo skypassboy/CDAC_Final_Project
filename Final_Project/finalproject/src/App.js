@@ -30,10 +30,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import { useNavigate, useLocation } from 'react-router-dom';
+import UpdateProfile from './components/UpdateProfile';
+import AddProperty from './components/AddProperty';
 
 
 function App() {
-  const [show, setShow] = useState(false);
+const [show, setShow] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -59,8 +61,8 @@ function App() {
   return (
     <div className="App">
 
-
-
+    <AddProperty />
+{/* 
       <Routes>
         <Route path='/ShowProperty' element={<ShowProperty />} />
         <Route path='/LandingPage' element={<LandingPage />} />
@@ -69,7 +71,8 @@ function App() {
         <Route path="/register_page" element={<Registration />} />
         <Route path="/register_page_admin" element={<RegistrationAdmin />} />
         <Route path="/showAllUsers" element={<ShowAllUsers />} />
-      </Routes>
+        <Route path='/UpdateProfile' element={<UpdateProfile />} />
+      </Routes> */}
 
 
     </div>

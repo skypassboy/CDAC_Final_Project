@@ -56,6 +56,13 @@ public class User {
 	
 	@Column
 	int pincode;
+	
+	
+	
+	
+	public User() {
+		super();
+	}
 
 <<<<<<< HEAD
 	public User(int userid, String username, String password, String aadharcardno, String emailid, int phonenumber,
@@ -94,6 +101,80 @@ public class User {
 		this.address = address;
 		this.pincode = pincode;
 		this.activitystatus=activitystatus;
+	}
+	
+	
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getAadharcardno() {
+		return aadharcardno;
+	}
+
+	public void setAadharcardno(String aadharcardno) {
+		this.aadharcardno = aadharcardno;
+	}
+
+	public String getEmailid() {
+		return emailid;
+	}
+
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
+	}
+
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+
+	public Role getRoleid() {
+		return roleid;
+	}
+
+	public void setRoleid(Role roleid) {
+		this.roleid = roleid;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public int getPincode() {
+		return pincode;
+	}
+
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
 	}
 
 	@Override
