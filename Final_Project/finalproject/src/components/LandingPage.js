@@ -1,85 +1,178 @@
+
+
+// ********************************************************************************************working code
+// import React, { useState, useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+// localStorage.setItem("page", "/login_page");
+
+// const LandingPage = () => {
+//     const navigate = useNavigate();
+//     const [isLoggedIn, setLoggedIn] = useState(false);
+
+//     useEffect(() => {
+//         const isUserLoggedIn = localStorage.getItem('rlogin') === 'true';
+//         setLoggedIn(isUserLoggedIn);
+//     }, []);
+
+//     const handleLogin = () => {
+//         localStorage.setItem('rlogin', 'true');
+//         setLoggedIn(true);
+//         localStorage.setItem("page", "/login_page");
+//         navigate('/login_page');
+//     };
+
+//     const handleLogout = () => {
+//         localStorage.setItem('rlogin', 'false');
+//         localStorage.setItem("name", "");
+//         setLoggedIn(false);
+//         navigate('/LandingPage');
+//     };
+
+//     const showProperty = () => {
+//         if (isLoggedIn) {
+//             navigate("/ShowProperty");
+//         } else {
+//             document.getElementById("prop").innerText = "Login first..!";
+//         }
+//     };
+
+//     const name = localStorage.getItem("name");
+
+//     return (
+//         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+//             <div className="container">
+//                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+//                     <span className="navbar-toggler-icon"></span>
+//                 </button>
+//                 <div className="collapse navbar-collapse" id="navbarNav">
+//                     <ul className="navbar-nav">
+//                         <li className="nav-item">
+//                             <button className="btn btn-outline-light mr-2" onClick={showProperty}>Show Property</button>
+//                             <span id='prop' className="text-light"></span>
+//                         </li>
+//                         <li className="nav-item">
+//                             {isLoggedIn ? (
+//                                 <span className="nav-link text-light">Welcome {name}</span>
+//                             ) : (
+//                                 <span className="nav-link"></span>
+//                             )}
+//                         </li>
+//                     </ul>
+//                     <ul className="navbar-nav ml-auto">
+//                         <li className="nav-item">
+//                             {isLoggedIn ? (
+//                                 <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+//                             ) : (
+//                                 <button className="btn btn-outline-light" onClick={handleLogin}>Login</button>
+//                             )}
+//                         </li>
+//                         <li className="nav-item" style={{ marginLeft: '10px' }}>
+//                             {isLoggedIn ? (
+//                                 <button style={{ display: 'none' }} onClick={() => navigate('/Register_page')} className="btn btn-outline-light">Register</button>
+//                             ) : (
+//                                 <button onClick={() => navigate('/Register_page')} className="btn btn-outline-light">Register</button>
+//                             )}
+//                         </li>
+//                     </ul>
+//                 </div>
+//             </div>
+//         </nav>
+//     );
+// };
+
+// export default LandingPage;
+
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Dropdown } from 'react-bootstrap';
 
-import '../css/landing_page_css.css';
-import '../css/login_page_css.css'
 localStorage.setItem("page", "/login_page");
 
 const LandingPage = () => {
     const navigate = useNavigate();
     const [isLoggedIn, setLoggedIn] = useState(false);
+    const [name, setName] = useState("");
 
     useEffect(() => {
-        // Check local storage on component mount to set initial login state
         const isUserLoggedIn = localStorage.getItem('rlogin') === 'true';
         setLoggedIn(isUserLoggedIn);
+
+        const storedName = localStorage.getItem("name");
+        setName(storedName || "");
     }, []);
 
     const handleLogin = () => {
-        // Update local storage and set login state to true
         localStorage.setItem('rlogin', 'true');
         setLoggedIn(true);
-        // You may want to redirect the user after successful login
         localStorage.setItem("page", "/login_page");
         navigate('/login_page');
     };
 
     const handleLogout = () => {
-        // Update local storage and set login state to false
         localStorage.setItem('rlogin', 'false');
         localStorage.setItem("name", "");
         setLoggedIn(false);
-        // You may want to redirect the user after successful logout
+        setName("");
         navigate('/LandingPage');
     };
 
     const showProperty = () => {
         if (isLoggedIn) {
-            navigate("/ShowProperty")
+            navigate("/ShowProperty");
+        } else {
+            document.getElementById("prop").innerText = "Login first..!";
         }
-        else {
-            document.getElementById("prop").innerText = "Login first..!"
-        }
-    }
-
-    const name = localStorage.getItem("name");
+    };
 
     return (
-        <div id='login_main_div'>
-            <div id='landingsubdiv'>
-
-
-                <div>
-
-                    <button class='btnbtn1' onClick={showProperty}>Show Property</button>
-                    <span id='prop'></span>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div className="container">
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <button className="btn btn-outline-light mr-2" onClick={showProperty}>Show Property</button>
+                            <span id='prop' className="text-light"></span>
+                        </li>
+                    </ul>
+                    <ul className="navbar-nav ml-auto">
+                        {isLoggedIn ? (
+                            <li className="nav-item">
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="link" id="dropdown-basic">
+                                        Welcome {name}
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item onClick={() => navigate('/UpdateProfile')}>Update Profile</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => navigate('/UploadProperty')}>Upload Property</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </li>
+                        ) : (
+                            <>
+                                <li className="nav-item">
+                                    <button className="btn btn-outline-light" onClick={handleLogin}>Login</button>
+                                </li>
+                                <li className="nav-item" style={{ marginLeft: '10px' }}>
+                                    <button onClick={() => navigate('/Register_page')} className="btn btn-outline-light">Register</button>
+                                </li>
+                            </>
+                        )}
+                        <li className="nav-item">
+                            {isLoggedIn && (
+                                <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+                            )}
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    {isLoggedIn ? (<span class='loginname'>{"Welcome " + name}</span>) : (<span class='loginname'></span>)}
-
-                    {isLoggedIn ? (
-                        <button class='btnbtn1' onClick={handleLogout}>Logout</button>
-                    ) : (
-                        <button class='btnbtn1' onClick={handleLogin}>Login</button>
-                    )}
-                   
-                    {isLoggedIn ?(
-                         <button id='btn' style={{ display: 'none' }} onClick={() => {
-                            navigate('/Register_page');
-                        }} class="btnbtn">Register</button>
-                    ): (
-                       
-                        <button id='btn' onClick={() => {
-                            navigate('/Register_page');
-                        }} class="btnbtn">Register</button>
-                    )
-
-                    }
-                </div>
-
-
             </div>
-        </div>
+        </nav>
     );
 };
 

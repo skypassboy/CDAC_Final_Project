@@ -1,10 +1,12 @@
 package com.example.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.User;
@@ -41,4 +43,37 @@ public class UserService {
         return urepo.findAll();
     }
 	
+	
+	
+	@Transactional
+    public ResponseEntity<User> updateUser(int userId, User updatedUser) {
+        try {
+            Optional<User> optionalUser = urepo.findById(userId);
+
+            if (optionalUser.isPresent()) {
+                User existingUser = optionalUser.get();
+
+                // Update fields with non-null values from the updatedUser
+                existingUser.setUsername(updatedUser.getUsername());
+                existingUser.setPassword(updatedUser.getPassword());
+                existingUser.setAadharcardno(updatedUser.getAadharcardno());
+                existingUser.setEmailid(updatedUser.getEmailid());
+                existingUser.setPhonenumber(updatedUser.getPhonenumber());
+                existingUser.setRoleid(updatedUser.getRoleid());
+                existingUser.setAddress(updatedUser.getAddress());
+                existingUser.setPincode(updatedUser.getPincode());
+
+                // Save the updated user to the database
+                User savedUser = urepo.save(existingUser);
+
+                return ResponseEntity.ok(savedUser);
+            } else {
+                // User with the given ID not found
+                return ResponseEntity.status(404).build();
+            }
+        } catch (Exception e) {
+            // Handle exceptions and return appropriate status codes or messages
+            return ResponseEntity.status(500).build();
+        }
+    }
 }
