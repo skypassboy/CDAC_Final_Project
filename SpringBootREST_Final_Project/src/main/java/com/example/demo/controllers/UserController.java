@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -56,41 +57,46 @@ public class UserController {
         }
 	}
 	
-	@PutMapping("/updateProfile")
-	public ResponseEntity<User> updateProfile(@RequestBody User updatedUser) {
-	    try {
-	        // Fetch the user from the database based on the user ID in the provided updatedUser object
-	        Optional<User> userOptional = userRepository.findById(updatedUser.getUserid());
-
-	        if (userOptional.isPresent()) {
-	            // If the user exists, update the user's details with the provided updatedUser object
-	            User existingUser = userOptional.get();
-
-	            // Update user details with new data
+	@PutMapping("/updateUser/{userId}")
+    public ResponseEntity<User> updateProfile(@PathVariable int userId, @RequestBody User updateProfile) {
+		System.out.println("in update");
+        return uservice.updateProfile(userId, updateProfile);
+    }
+	
+//	@PutMapping("/updateProfile")
+//	public ResponseEntity<User> updateProfile(@RequestBody User updatedUser) {
+//	    try {
+//	        // Fetch the user from the database based on the user ID in the provided updatedUser object
+//	        Optional<User> userOptional = userRepository.findById(updatedUser.getUserid());
+//
+//	        if (userOptional.isPresent()) {
+//	            // If the user exists, update the user's details with the provided updatedUser object
+//	            User existingUser = userOptional.get();
+//
+//	            // Update user details with new data
 //	            existingUser.setUsername(updatedUser.getUsername());
-	            existingUser.setUsername(updatedUser.getUsername());
-	            existingUser.setPassword(updatedUser.getPassword());
-	            existingUser.setAadharcardno(updatedUser.getAadharcardno());
-	            existingUser.setUsername(updatedUser.getUsername());
-	            existingUser.setUsername(updatedUser.getUsername());
-	            existingUser.setUsername(updatedUser.getUsername());
-	            existingUser.setAddress(updatedUser.getAddress());
-	            existingUser.setPincode(updatedUser.getPincode());
-
-	            // Save the updated user details
-	            userRepository.save(existingUser);
-
-	            // Optionally, you can return the updated user object in the response
-	            return ResponseEntity.ok(existingUser);
-	        } else {
-	            // If user with given userId doesn't exist, return 404 Not Found
-	            return ResponseEntity.notFound().build();
-	        }
-	    } catch (Exception e) {
-	        // Handle any exceptions and return a 500 Internal Server Error response
-	        return ResponseEntity.status(500).build();
-	    }
-	}
+//	            existingUser.setPassword(updatedUser.getPassword());
+//	            existingUser.setAadharcardno(updatedUser.getAadharcardno());
+//	            existingUser.setEmailid(updatedUser.getEmailid());
+//	            existingUser.setPhonenumber(updatedUser.getPhonenumber());
+//	            existingUser.setRoleid(updatedUser.getRoleid());
+//	            existingUser.setAddress(updatedUser.getAddress());
+//	            existingUser.setPincode(updatedUser.getPincode());
+//
+//	            // Save the updated user details
+//	            userRepository.save(existingUser);
+//
+//	            // Optionally, you can return the updated user object in the response
+//	            return ResponseEntity.ok(existingUser);
+//	        } else {
+//	            // If user with given userId doesn't exist, return 404 Not Found
+//	            return ResponseEntity.notFound().build();
+//	        }
+//	    } catch (Exception e) {
+//	        // Handle any exceptions and return a 500 Internal Server Error response
+//	        return ResponseEntity.status(500).build();
+//	    }
+//	}
 
 
 }
