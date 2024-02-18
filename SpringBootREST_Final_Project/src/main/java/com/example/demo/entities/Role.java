@@ -1,9 +1,6 @@
 package com.example.demo.entities;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,34 +11,61 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity
-@Table(name="role")
-@NoArgsConstructor
-@Getter
-@Setter
+@Table(name = "role")
 public class Role {
-	@Id
-	@Column
-	private int roleid ;
-	
-	@Column
-	private String rolename;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "roleid")
+    private int roleid;
+
+    @Column(name = "rolename")
+    private String rolename;
+
+    
+    
+    
+  
+	public Role() {
+		super();
+	}
 	
 	public Role(int roleid) {
 		super();
 		this.roleid = roleid;
-	}	
-	
-	@Override
-	public String toString() {
-		return "Role [rolename=" + rolename + "]";
+	}
+
+	public Role(int roleid, String rolename) {
+		super();
+		this.roleid = roleid;
+		this.rolename = rolename;
+		
+	}
+
+	public int getRoleid() {
+		return roleid;
+	}
+
+	public void setRoleid(int roleid) {
+		this.roleid = roleid;
+	}
+
+	public String getRolename() {
+		return rolename;
+	}
+
+	public void setRolename(String rolename) {
+		this.rolename = rolename;
 	}
 
 	
+
+	@Override
+	public String toString() {
+		return "Role [roleid=" + roleid + ", rolename=" + rolename +  "]";
+	}
+	
+	
+    
 }

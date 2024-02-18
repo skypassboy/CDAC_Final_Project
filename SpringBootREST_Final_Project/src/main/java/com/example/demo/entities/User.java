@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -45,10 +44,9 @@ public class User {
 	@Column
 	String phonenumber;
 	
-	
 	@ManyToOne
     @JoinColumn(name = "roleid")
-    Role role;
+	Role roleid;
 	
 	@Column
 	String address;
@@ -57,7 +55,7 @@ public class User {
 	int pincode;
 
 	public User(int userid, String username, String password, String aadharcardno, String emailid, String phonenumber,
-			Role role, String address, int pincode) {
+			Role roleid, String address, int pincode) {
 		super();
 		this.userid = userid;
 		this.username = username;
@@ -65,12 +63,12 @@ public class User {
 		this.aadharcardno = aadharcardno;
 		this.emailid = emailid;
 		this.phonenumber = phonenumber;
-		this.role = role;
+		this.roleid = roleid;
 		this.address = address;
 		this.pincode = pincode;
 	}
 
-	public User(String username, String password, String aadharcardno, String emailid, String phonenumber, Role role,
+	public User(String username, String password, String aadharcardno, String emailid, String phonenumber, Role roleid,
 			String address, int pincode) {
 		super();
 		this.username = username;
@@ -78,7 +76,7 @@ public class User {
 		this.aadharcardno = aadharcardno;
 		this.emailid = emailid;
 		this.phonenumber = phonenumber;
-		this.role = role;
+		this.roleid = roleid;
 		this.address = address;
 		this.pincode = pincode;
 	}
@@ -86,7 +84,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", username=" + username + ", password=" + password + ", aadharcardno="
-				+ aadharcardno + ", emailid=" + emailid + ", phonenumber=" + phonenumber + ", role=" + role
+				+ aadharcardno + ", emailid=" + emailid + ", phonenumber=" + phonenumber + ", roleid=" + roleid
 				+ ", address=" + address + ", pincode=" + pincode + "]";
 	}
 	
