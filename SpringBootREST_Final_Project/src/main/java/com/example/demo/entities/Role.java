@@ -68,4 +68,8 @@ public class Role {
 	
 	
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d617c6d264bd0839bad04ab63918b5581dbe6bef
