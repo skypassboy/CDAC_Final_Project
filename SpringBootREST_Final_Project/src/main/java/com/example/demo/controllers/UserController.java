@@ -66,10 +66,6 @@ public class UserController {
         }
     }
 	
-<<<<<<< HEAD
-	
-}
-=======
 	@PutMapping("/updateuser/{userId}")
     public ResponseEntity<User> updateUser(@PathVariable int userId, @RequestBody User updatedUser) {
 		System.out.println("in update");
@@ -78,4 +74,4 @@ public class UserController {
     }
 	
 }
->>>>>>> d617c6d264bd0839bad04ab63918b5581dbe6bef
+

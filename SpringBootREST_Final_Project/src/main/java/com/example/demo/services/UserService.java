@@ -42,11 +42,7 @@ public class UserService {
 	public List<User> getAllUsers() {
         return urepo.findAll();
     }
-	
-<<<<<<< HEAD
-}
-=======
-	
+
 	
 	@Transactional
     public ResponseEntity<User> updateUser(int userId, User updatedUser) {
@@ -80,4 +76,4 @@ public class UserService {
         }
     }
 }
->>>>>>> d617c6d264bd0839bad04ab63918b5581dbe6bef
+

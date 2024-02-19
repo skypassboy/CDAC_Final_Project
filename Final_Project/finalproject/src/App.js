@@ -30,7 +30,7 @@ import ShowAllUsers from './components/ShowAllUsers';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate, useLocation } from 'react-router-dom';
-
+import AddPropertyForm from './components/AddPropertyForm';
 
 function App() {
   const [show, setShow] = useState(false);
@@ -69,6 +69,7 @@ function App() {
         <Route path="/register_page" element={<Registration />} />
         <Route path="/updateprofile" element={<UpdateProfile/>}></Route>
         <Route path="/showAllUsers" element={<ShowAllUsers />} />
+        <Route path="/AddPropertyForm" element={<AddPropertyForm />} />
       </Routes>
 
 
