@@ -33,7 +33,7 @@ public class Property {
     private Integer deposit;
 
     @Column(name = "furnished")
-    private Boolean furnished;
+    private String furnished;
 
     @Column(name = "parking")
     private Boolean parking;
@@ -71,7 +71,7 @@ public class Property {
     private City city;
 
 	public Property(Long propertyid, Long userid, String address, Integer propertyareasqft, Integer bhk, Integer rent,
-			Integer deposit, Boolean furnished, Boolean parking, Integer nooftoilets, Boolean wifi,
+			Integer deposit, String furnished, Boolean parking, Integer nooftoilets, Boolean wifi,
 			Boolean gasconnection, Boolean lift, Integer floorno, Boolean watergeyser, String tenanttype,
 			Integer pincode, Area area, City city) {
 		super();
@@ -97,7 +97,7 @@ public class Property {
 	}
 
 	public Property(Long userid, String address, Integer propertyareasqft, Integer bhk, Integer rent, Integer deposit,
-			Boolean furnished, Boolean parking, Integer nooftoilets, Boolean wifi, Boolean gasconnection, Boolean lift,
+			String furnished, Boolean parking, Integer nooftoilets, Boolean wifi, Boolean gasconnection, Boolean lift,
 			Integer floorno, Boolean watergeyser, String tenanttype, Integer pincode, Area area, City city) {
 		super();
 		this.userid = userid;
@@ -176,11 +176,11 @@ public class Property {
 		this.deposit = deposit;
 	}
 
-	public Boolean getFurnished() {
+	public String getFurnished() {
 		return furnished;
 	}
 
-	public void setFurnished(Boolean furnished) {
+	public void setFurnished(String furnished) {
 		this.furnished = furnished;
 	}
 
