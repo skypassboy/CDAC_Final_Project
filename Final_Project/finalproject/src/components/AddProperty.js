@@ -29,7 +29,7 @@ const AddPropertyForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch('http://localhost:8080/addproperty', {
+        fetch('http://localhost:8090/addproperty', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -19,7 +19,7 @@
 //     const handleUpdateUser = async () => {
 //         const userid = userdetails.userid;
 //         try {
-//             await fetch(`http://localhost:8080/updateuser/${userid}`, {
+//             await fetch(`http://localhost:8090/updateuser/${userid}`, {
 //                 method: 'PUT',
 //                 headers: {
 //                     'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ const UpdateUser = () => {
     const handleUpdateUser = async () => {
         const userid = userdetails.userid;
         try {
-            await fetch(`http://localhost:8080/updateuser/${userid}`, {
+            await fetch(`http://localhost:8090/updateuser/${userid}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

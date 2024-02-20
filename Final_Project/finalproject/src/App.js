@@ -25,6 +25,7 @@ import ShowProperty from './components/ShowProperty';
 import LandingAdmin from './components/LandingAdmin';
 import { Login } from './components/Login'
 import { Link, Routes, Route } from 'react-router-dom';
+import AddPropertyForm from './components/AddProperty';
 
 import ShowAllUsers from './components/ShowAllUsers';
 
@@ -69,6 +70,7 @@ function App() {
         <Route path="/register_page" element={<Registration />} />
         <Route path="/updateprofile" element={<UpdateProfile/>}></Route>
         <Route path="/showAllUsers" element={<ShowAllUsers />} />
+        <Route path='/addproperty' element={<AddPropertyForm/>}/>
       </Routes>
 
 

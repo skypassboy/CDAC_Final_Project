@@ -66,7 +66,7 @@ public class UserController {
         }
     }
 	
-	@PutMapping("/updateuser/{userId}")
+	@PutMapping("/updateuser")
     public ResponseEntity<User> updateUser(@PathVariable int userId, @RequestBody User updatedUser) {
 		System.out.println("in update");
 		System.out.println(userId);

@@ -14,8 +14,9 @@ public class Property {
     @Column(name = "propertyid")
     private Long propertyid;
 
-    @Column(name = "userid")
-    private Long userid;
+    @ManyToOne
+    @JoinColumn(name = "userid")
+    private User userid;
 
     @Column(name = "address")
     private String address;
@@ -33,7 +34,7 @@ public class Property {
     private Integer deposit;
 
     @Column(name = "furnished")
-    private Boolean furnished;
+    private int furnished;
 
     @Column(name = "parking")
     private Boolean parking;
@@ -66,12 +67,10 @@ public class Property {
     @JoinColumn(name = "pincode", referencedColumnName = "pincode", insertable = false, updatable = false)
     private Area area;
 
-    @ManyToOne
-    @JoinColumn(name = "cityid", referencedColumnName = "cityid", insertable = false, updatable = false)
-    private City city;
+    
 
-	public Property(Long propertyid, Long userid, String address, Integer propertyareasqft, Integer bhk, Integer rent,
-			Integer deposit, Boolean furnished, Boolean parking, Integer nooftoilets, Boolean wifi,
+	public Property(Long propertyid, User userid, String address, Integer propertyareasqft, Integer bhk, Integer rent,
+			Integer deposit, int furnished, Boolean parking, Integer nooftoilets, Boolean wifi,
 			Boolean gasconnection, Boolean lift, Integer floorno, Boolean watergeyser, String tenanttype,
 			Integer pincode, Area area, City city) {
 		super();
@@ -93,11 +92,11 @@ public class Property {
 		this.tenanttype = tenanttype;
 		this.pincode = pincode;
 		this.area = area;
-		this.city = city;
+		
 	}
 
-	public Property(Long userid, String address, Integer propertyareasqft, Integer bhk, Integer rent, Integer deposit,
-			Boolean furnished, Boolean parking, Integer nooftoilets, Boolean wifi, Boolean gasconnection, Boolean lift,
+	public Property(User userid, String address, Integer propertyareasqft, Integer bhk, Integer rent, Integer deposit,
+			int furnished, Boolean parking, Integer nooftoilets, Boolean wifi, Boolean gasconnection, Boolean lift,
 			Integer floorno, Boolean watergeyser, String tenanttype, Integer pincode, Area area, City city) {
 		super();
 		this.userid = userid;
@@ -117,7 +116,7 @@ public class Property {
 		this.tenanttype = tenanttype;
 		this.pincode = pincode;
 		this.area = area;
-		this.city = city;
+		
 	}
 
 	public Long getPropertyid() {
@@ -128,11 +127,11 @@ public class Property {
 		this.propertyid = propertyid;
 	}
 
-	public Long getUserid() {
+	public User getUserid() {
 		return userid;
 	}
 
-	public void setUserid(Long userid) {
+	public void setUserid(User userid) {
 		this.userid = userid;
 	}
 
@@ -176,11 +175,11 @@ public class Property {
 		this.deposit = deposit;
 	}
 
-	public Boolean getFurnished() {
+	public int getFurnished() {
 		return furnished;
 	}
 
-	public void setFurnished(Boolean furnished) {
+	public void setFurnished(int furnished) {
 		this.furnished = furnished;
 	}
 
@@ -264,13 +263,7 @@ public class Property {
 		this.area = area;
 	}
 
-	public City getCity() {
-		return city;
-	}
-
-	public void setCity(City city) {
-		this.city = city;
-	}
+	
 
 	@Override
 	public String toString() {
@@ -279,7 +272,7 @@ public class Property {
 				+ ", furnished=" + furnished + ", parking=" + parking + ", nooftoilets=" + nooftoilets + ", wifi="
 				+ wifi + ", gasconnection=" + gasconnection + ", lift=" + lift + ", floorno=" + floorno
 				+ ", watergeyser=" + watergeyser + ", tenanttype=" + tenanttype + ", pincode=" + pincode + ", area="
-				+ area + ", city=" + city + "]";
+				+ area +  "]";
 	}
 
 	

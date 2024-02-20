@@ -44,6 +44,12 @@ public class UserService {
     }
 	
 	
+	public User getOne(int uid)
+	{
+		//return urepo.findById(uid).orElse(null);
+		return urepo.findById(uid).get();
+	}
+	
 	
 	@Transactional
     public ResponseEntity<User> updateUser(int userId, User updatedUser) {

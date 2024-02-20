@@ -104,7 +104,7 @@
 //             }),
 //         };
 
-//         fetch('http://localhost:8080/register', reqData)
+//         fetch('http://localhost:8090/register', reqData)
 //             .then((res) => {
 //                 if (res.ok) {
 //                     alert('Registered Successfully...!');
@@ -407,7 +407,7 @@
 //             }),
 //         };
 
-//         fetch('http://localhost:8080/register', reqData)
+//         fetch('http://localhost:8090/register', reqData)
 //             .then((res) => {
 //                 if (res.ok) {
 //                     alert('Registered Successfully...!');
@@ -710,7 +710,7 @@ const Registration = () => {
             }),
         };
 
-        fetch('http://localhost:8080/register', reqData)
+        fetch('http://localhost:8090/register', reqData)
             .then((res) => {
                 if (res.ok) {
                     alert('Registered Successfully...!');

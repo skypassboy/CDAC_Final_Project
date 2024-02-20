@@ -22,22 +22,21 @@ public class City {
     @OneToMany(mappedBy = "city")
     private List<Area> areas;
 
-    @OneToMany(mappedBy = "city")
-    private List<Property> properties;
+    
 
 	public City(Integer cityid, String cityname, List<Area> areas, List<Property> properties) {
 		super();
 		this.cityid = cityid;
 		this.cityname = cityname;
 		this.areas = areas;
-		this.properties = properties;
+		
 	}
 
 	public City(String cityname, List<Area> areas, List<Property> properties) {
 		super();
 		this.cityname = cityname;
 		this.areas = areas;
-		this.properties = properties;
+		
 	}
 
 	public City(Integer cityid, String cityname) {
@@ -69,7 +68,7 @@ public class City {
 
 	@Override
 	public String toString() {
-		return "City [cityid=" + cityid + ", cityname=" + cityname + ", areas=" + areas + ", properties=" + properties
+		return "City [cityid=" + cityid + ", cityname=" + cityname + ", areas=" + areas 
 				+ "]";
 	}
 
