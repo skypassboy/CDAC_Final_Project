@@ -1,0 +1,6 @@
+@CDAC_FINAL_PROJECT_.NET_HostAddress = http://localhost:5136
+
+GET {{CDAC_FINAL_PROJECT_.NET_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

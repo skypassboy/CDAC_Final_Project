@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CDAC_FINAL_PROJECT_.NET.props" />
+</Project>
